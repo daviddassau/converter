@@ -6,32 +6,24 @@
 </head>
 <body>
 
-	<div id="container">
+	<form id="textInput">
+	
+		Degrees in Fahrenheit/Celsius:<br />
+		<input type="text" name="ftc" id="ftc"/><br />
+		I want to convert my temperature to:<br />
+		<input id="fahrenheitRadio" type="radio" name="degreeFC"> Fahrenheit
+		<input id="celsiusRadio" type="radio" name="degreeFC"> Celsius<br />
+		<button type="button" onclick="fahrenheitCelsiusConverter()"> Click to Convert</button> 
+		<input type="button" onclick="clearForm()" value="Clear All Fields"><br />
 
-		<h1>Temperature Converter</h1>
-
-		<div id="input">
-			Degrees Fahrenheit or Celcius:<br />
-			<input type="text" name="degrees">
-			<br /><br />
-			Convert to:<br />
-			<input type="radio" name="degreeFC"> Fahrenheit<br>
-			<input type="radio" name="degreeFC"> Celcius<br />
-			<input type="submit" value="Submit">
+		<div id="answer">
+			
 		</div>
 
-		<div id="output">
-			<h3>Your temperature is blank</h3>
-		</div>
-
-		<div class="clearAllFields">
-		<input type="submit" value="Clear All Fields">
-		</div>
+		
 
 
-
-
-	</div>
+	</form>
 
 <script type="text/javascript" src="main.js"></script>
 </body>
