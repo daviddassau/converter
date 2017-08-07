@@ -18,6 +18,9 @@ function fahrenheitCelsiusConverter() {
 // }
 
 
+
+
+
 // Function to clear form
 function clearForm() {
     document.getElementById("textInput").reset();
