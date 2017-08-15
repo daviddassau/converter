@@ -1,27 +1,50 @@
 function fahrenheitCelsiusConverter() {
+	var userInput = parseFloat(document.getElementById('ftc').value);
 	if(document.getElementById('fahrenheitRadio').checked) {
-		var userInputCelsius = parseFloat(document.getElementById('ftc').value);
-    	var convertedFromFahrenheit = userInputCelsius*9/5 + 32;
-    	// document.getElementById('answer').value = convertedFromFahrenheit;
-    	document.getElementById('answer').innerHTML = '<h3>' + convertedFromFahrenheit + '°F' + '</h3>'
+    	var convertedToFahrenheit = userInput*9/5 + 32;
+    	var classToApply = decideWhichClass(convertedToFahrenheit, 'far');
+    	document.getElementById('answer').innerHTML = '<h3 class="'+ classToApply +'">' + convertedToFahrenheit + '°F' + '</h3>'
+    	console.log(classToApply);
 	} else if(document.getElementById('celsiusRadio').checked) {
-		var userInputFahrenheit = parseFloat(document.getElementById('ftc').value);
-    	var convertedFromCelsius = (userInputFahrenheit-32) * 5/9;
-    	document.getElementById('answer').innerHTML = '<h3>' + convertedFromCelsius + '°C' + '</h3>'
+    	var convertedToCelsius = (userInput-32) * 5/9;
+    	var classToApply = decideWhichClass(convertedToCelsius, 'cel');
+    	document.getElementById('answer').innerHTML = '<h3 class="'+ classToApply +'">' + convertedToCelsius + '°C' + '</h3>'
 	}
 }
 
-// if (convertedFromFahrenheit > 90 && convertedFromCelsius > 32) {
-// 	convertedFromFahrenheit.classList.add("tempGreaterThan9032");
-// } else if (convertedFromFahrenheit < 32 && convertedFromCelsius < 0) {
-// 	convertedFromFahrenheit.classList.add("tempGreaterThan9032");
-// }
+var converterButton = document.getElementById('converterBTN');
+converterButton.addEventListener('click', fahrenheitCelsiusConverter);
 
+function decideWhichClass (outputTemp, farOrCel) {
+	var classToAdd = "";
+	console.log(outputTemp, farOrCel);
+	// know to return 1 of 3 classes .tempGreaterThan9032 .tempLessThan320 .tempInBetween
+	if((farOrCel === 'far' && outputTemp >= 90) || (farOrCel === 'cel' && outputTemp >= 32)) {
+		classToAdd = "tempGreaterThan9032";
+	} else if((farOrCel === 'far' && outputTemp <= 32) || (farOrCel === 'cel' && outputTemp <= 0)) {
+		classToAdd = "tempLessThan320";
+	} else {
+		classToAdd = "tempInBetween";
+	}
+	return classToAdd;
+}
 
-//This is an unnessary comment
 
 
 // Function to clear form
+
+var clearButton = document.getElementById('clearBTN');
+clearButton.addEventListener('click', clearForm);
+
 function clearForm() {
     document.getElementById("textInput").reset();
 }
+
+
+
+
+
+
+
+
+
