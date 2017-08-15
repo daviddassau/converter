@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title>Temperature Converter</title>
-	<link rel="stylesheet" type="text/css" href="main.css">
+	<link rel="stylesheet" type="text/css" href="./main.css">
 </head>
 <body>
 
@@ -13,8 +13,8 @@
 		I want to convert my temperature to:<br />
 		<input id="fahrenheitRadio" type="radio" name="degreeFC"> Fahrenheit
 		<input id="celsiusRadio" type="radio" name="degreeFC"> Celsius<br />
-		<button type="button" onclick="fahrenheitCelsiusConverter()"> Click to Convert</button> 
-		<input type="button" onclick="clearForm()" value="Clear All Fields"><br />
+		<button type="button" id="converterBTN"> Click to Convert</button> 
+		<input type="button" id="clearBTN" onclick="clearForm()" value="Clear All Fields"><br />
 
 		<div id="answer">
 			
@@ -25,6 +25,6 @@
 
 	</form>
 
-<script type="text/javascript" src="main.js"></script>
+<script type="text/javascript" src="./main.js"></script>
 </body>
 </html>
